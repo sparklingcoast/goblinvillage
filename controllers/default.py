@@ -9,6 +9,7 @@ import traceback
 import requests
 
 def index():
+    print "hi"
     return dict()
 
 
