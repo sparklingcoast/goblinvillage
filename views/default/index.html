@@ -8,12 +8,35 @@
 
 <div class="main_content">
     <div id="vue-div" style="display:none">
-        <span>
-            <button class="btn" v-on:click="cookie_clicked">Gold!</button>
-            <span>
-                Gold: ${gold}
+        <div class="container">
+            <div class="third">
+                <button class="btn" v-on:click="cookie_clicked">Gold!</button>
+                <span>
+                Gold: ${gold.toFixed(1)}
             </span>
-        </span>
+            </div>
+            <div class="twothirds">
+                <div v-for="item in shop">
+                    <div v-if="maxgold >= item.price/2">
+                        <div>
+                            ${item.item_name}
+                        </div>
+                        <div>
+                            ${item.price.toFixed(1)} gold
+                        </div>
+                        <div>
+                            Amount: ${item.amount}
+                        </div>
+                        <div>
+                            ${item.description}
+                        </div>
+                        <div>
+                            <button class="btn" v-on:click="purchase_item(item)">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
