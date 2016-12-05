@@ -20,6 +20,9 @@ var app = function() {
     };
 
 
+    self.cookie_clicked = function() {
+        self.vue.gold = self.vue.gold + self.vue.goldclickincrease
+    }
 
 
     self.vue = new Vue({
@@ -27,9 +30,12 @@ var app = function() {
         delimiters: ['${', '}'],
         unsafeDelimiters: ['!{', '}'],
         data: {
+            gold: 0,
+            goldclickincrease: 1
         }
         ,
         methods: {
+            cookie_clicked: self.cookie_clicked
         }
 
     });
