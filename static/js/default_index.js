@@ -93,7 +93,7 @@ var app = function() {
             {item_name:"Tailor's Market", price: 1000, description: "Stocks a vast variety of products, but only one outfit ever gets bought", amount: 0, gold_per_sec: 35},
             {item_name:"Gemsmith", price: 10000, description: "Counterfeit glass", amount: 0, gold_per_sec: 400, img:"/goblinvillage/static/images/gem.png"},
             {item_name:"Oil Well", price: 100000, description: "Oil is like an energy drink to goblins", amount: 0, gold_per_sec: 4250},
-            {item_name:"Castle", price: 1000000, description: "More like a playground than a defensive structure", amount: 0, gold_per_sec: 45000}],
+            {item_name:"Castle", price: 1000000, description: "More like a playground than a defensive structure", amount: 0, gold_per_sec: 45000, img:"/goblinvillage/static/images/castle.png"}],
             mines: [{item_name:"Copper Mine", price: 20, description: "When it comes to goblins, 'mine' has a double meaning", amount: 0, gold_per_click: 1, img:"/goblinvillage/static/images/coppermine.png"},
             {item_name:"Iron Mine", price: 200, description: "Iron is too difficult to work with, so goblins just use the rocks in this mine", amount: 0, gold_per_click: 10, img: "/goblinvillage/static/images/ironmine.png"},
             {item_name:"Lumber Mine", price: 2000, description: "Requires specialty pickaxes", amount: 0, gold_per_click: 100, img:"/goblinvillage/static/images/tree.png"},

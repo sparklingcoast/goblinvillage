@@ -59,8 +59,8 @@ div.main_content .total_price {
   height: 100%;
 }
 .circle {
-  height: 100px;
-  width: 100px;
+  height: 300px;
+  width: 300px;
   outline:none !important;
 }
 .circle::-moz-focus-inner {
@@ -70,4 +70,17 @@ div.main_content .total_price {
   background: url("/goblinvillage/static/images/coin.png");
   background-size: 100%;
   background-position: center;
+}
+
+.item_title {
+  font-size: 200%;
+}
+
+.art {
+  align-content: center;
+}
+
+.gold {
+  font-size: 700%;
+  color: white;
 }

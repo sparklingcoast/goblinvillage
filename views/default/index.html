@@ -11,10 +11,7 @@
         <div class="container">
             <div class="quarter white whole_page">
                 <div class="padded">
-                    <button class="btn yellow oval circle coin" v-on:click="cookie_clicked">Gold!</button>
-                    <span>
-                    Gold: ${gold.toFixed(1)}
-                </span>
+                    <button class="btn yellow oval circle coin" v-on:click="cookie_clicked"><span class="gold">Gold:<br> ${gold.toFixed(1)}</span></button>
                 </div>
             </div>
             <div class="quarter aqua whole_page">
@@ -23,24 +20,24 @@
                         <div class="btn teal fill rounded container" v-if="maxgold >= item.price/3"
                              v-on:click="purchase_item(item)">
                             <div class="quarter">
-                                <img v-bind:src="item.img">
+                                <img class="center" v-bind:src="item.img">
                             </div>
                             <div class="threequarters">
-                            <div>
-                                ${item.item_name}
-                            </div>
-                            <div>
-                                Cost: ${item.price.toFixed(1)} gold
-                            </div>
-                            <div>
-                                Produces ${item.gold_per_sec} gold per second
-                            </div>
-                            <div>
-                                ${item.description}
-                            </div>
-                            <div>
-                                Amount: ${item.amount}
-                            </div>
+                                <div class="item_title">
+                                    ${item.item_name}
+                                </div>
+                                <div>
+                                    Cost: ${item.price.toFixed(1)} gold
+                                </div>
+                                <div>
+                                    Produces ${item.gold_per_sec} gold per second
+                                </div>
+                                <div>
+                                    ${item.description}
+                                </div>
+                                <div>
+                                    Amount: ${item.amount}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,7 +49,7 @@
                         <div class="btn teal fill rounded container" v-if="maxgold >= item.price/3"
                              v-on:click="purchase_item(item)">
                             <div class="quarter fill">
-                                <img v-bind:src="item.img">
+                                <img class="center" v-bind:src="item.img">
                             </div>
                             <div class="threequarters">
                                 <div>
