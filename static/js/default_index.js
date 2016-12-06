@@ -86,6 +86,15 @@ var app = function() {
         $.getJSON(get_village_url, function (data) {
             console.log(data);
             if(data.village=="None") return;
+            village = JSON.parse(data.village);
+            self.vue.gold = village.gold;
+            self.vue.goldclickincrease = village.goldclickincrease;
+            self.vue.goldpersecond = village.goldpersecond;
+            self.vue.maxgold = village.maxgold;
+            self.vue.goblins = village.goblins;
+            self.vue.weapons = village.weapons;
+            self.vue.shop = village.shop;
+            self.vue.mines = village.mines;
         })
     }
     

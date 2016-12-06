@@ -13,9 +13,11 @@
     <div id="vue-div" style="display:none">
         <div class="container">
             <div class="quarter white whole_page">
-                <div class="padded">
+                <div class="padded center">
                     <button class="btn yellow oval circle coin" v-on:click="cookie_clicked"><span class="gold">Gold:<br> ${gold.toFixed(0)}</span></button>
                 </div>
+                <div class="padded center" v-if="goldpersecond>0">Making ${goldpersecond.toFixed(1)} gold per second</div>
+                <div class="padded center" v-if="goldclickincrease>1">Each click gives ${goldclickincrease.toFixed(0)} gold</div>
             </div>
             <div class="quarter aqua whole_page">
                 <div class="padded">
