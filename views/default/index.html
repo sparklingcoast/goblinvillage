@@ -3,6 +3,9 @@
 {{block head}}
 <script src="{{=URL('static', 'js/vue.js')}}"></script>
 <script>
+    var get_village_url = "{{=URL('default', 'get_village', user_signature=True)}}";
+    var update_village_url = "{{=URL('default', 'update_village', user_signature=True)}}";
+    var get_other_villages_url = "{{=URL('default', 'get_other_villages', user_signature=True)}}";
 </script>
 {{end}}
 

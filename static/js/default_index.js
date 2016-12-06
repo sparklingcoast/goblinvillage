@@ -32,6 +32,7 @@ var app = function() {
 
     self.auto_refresh = function () {
         setInterval(self.refresh, 1000)
+        setInterval(self.update_village, 10000)
     };
 
     self.maxgoldcheck = function () {
@@ -81,8 +82,32 @@ var app = function() {
         }
     }
     
+    self.get_village = function () {
+        $.getJSON(get_village_url, function (data) {
+            console.log(data);
+            if(data.village=="None") return;
+        })
+    }
+    
     self.get_villages = function () {
         
+    }
+
+    self.update_village = function () {
+        console.log(self.vue);
+        $.post(update_village_url,
+            {
+                village: JSON.stringify({
+                    gold: self.vue.gold,
+                    goldclickincrease: self.vue.goldclickincrease,
+                    goldpersecond: self.vue.goldpersecond,
+                    maxgold: self.vue.maxgold,
+                    goblins: self.vue.goblins,
+                    weapons: self.vue.weapons,
+                    shop: self.vue.shop,
+                    mines: self.vue.mines
+                })
+            });
     }
 
     self.vue = new Vue({
@@ -118,6 +143,7 @@ var app = function() {
     });
 
 
+    self.get_village();
     self.auto_refresh();
     $("#vue-div").show();
 

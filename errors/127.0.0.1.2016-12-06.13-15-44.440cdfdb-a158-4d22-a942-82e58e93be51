@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.TypeError'> 'NoneType' object has no attribute '__getitem__'"
+p3
+sS'layer'
+p4
+S'/home/a/Desktop/web2py/applications/goblinvillage/controllers/default.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n# this file is released under public domain and you can use without limitations\n\nimport traceback\nimport requests\n\n\ndef get_user_name_from_email(email):\n    """Returns a string corresponding to the user first and last names,\n    given the user email."""\n    u = db(db.auth_user.email == email).select().first()\n    if u is None:\n        return \'None\'\n    else:\n        return u.first_name\n\n@auth.requires_login()\ndef get_village():\n    row = db(db.villages.user_email == auth.user.email).select().first()\n    if row==None:\n        return response.json(dict(village="None"))\n    return response.json(dict(village=row.village))\n\n\n@auth.requires_login()\ndef update_village():\n    print request.vars[\'village\'][\'shop\']\n    #db.villages.insert(\n    #    artist=request.vars.village\n    #)\n\n@auth.requires_login()\ndef index():\n    return dict()\n\n\ndef user():\n    return dict(form=auth())\n\n\n@cache.action()\ndef download():\n    return response.download(request, db)\n\n\ndef call():\n    return service()\n\n\n\nresponse._vars=response._caller(update_village)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/a/Desktop/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/a/Desktop/web2py/applications/goblinvillage/controllers/default.py", line 51, in <module>\n  File "/home/a/Desktop/web2py/gluon/globals.py", line 417, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/a/Desktop/web2py/gluon/tools.py", line 4241, in f\n    return action(*a, **b)\n  File "/home/a/Desktop/web2py/applications/goblinvillage/controllers/default.py", line 27, in update_village\n    print request.vars[\'village\'][\'shop\']\nTypeError: \'NoneType\' object has no attribute \'__getitem__\'\n'
+p11
+s.

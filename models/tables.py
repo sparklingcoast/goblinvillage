@@ -16,6 +16,13 @@ import datetime
 import json
 
 
+def get_user_email():
+    return auth.user.email if auth.user else None
+
+db.define_table('villages',
+                Field('user_email', default=auth.user.email if auth.user_id else None),
+                Field('village', 'text'))
+
 def nicefy(b):
     if b is None:
         return 'None'

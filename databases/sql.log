@@ -122,3 +122,10 @@ CREATE TABLE web2py_session_goblinvillage(
     session_data BLOB
 );
 success!
+timestamp: 2016-12-06T12:18:58.784568
+CREATE TABLE villages(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_email CHAR(512),
+    village TEXT
+);
+success!

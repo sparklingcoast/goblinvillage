@@ -4,9 +4,39 @@
 import traceback
 import requests
 
+
+def get_user_name_from_email(email):
+    """Returns a string corresponding to the user first and last names,
+    given the user email."""
+    u = db(db.auth_user.email == email).select().first()
+    if u is None:
+        return 'None'
+    else:
+        return u.first_name
+
+@auth.requires_login()
+def get_village():
+    row = db(db.villages.user_email == auth.user.email).select().first()
+    if row==None:
+        return response.json(dict(village="None"))
+    return response.json(dict(village=row.village))
+
+
+@auth.requires_login()
+def update_village():
+    print request.vars.village
+    row = db(db.villages.user_email == auth.user.email).select().first()
+    if row == None:
+        db.villages.insert(user_email=auth.user.email,village=request.vars.village)
+    else:
+        row.update_record(village = request.vars.village)
+    #db.villages.insert(
+    #    village=request.vars.village
+    #)
+
+@auth.requires_login()
 def index():
     return dict()
-
 
 
 def user():
