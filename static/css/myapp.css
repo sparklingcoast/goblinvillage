@@ -55,3 +55,6 @@ div.main_content .page_title {
 div.main_content .total_price {
   font-size: 150%;
 }
+.whole_page {
+  height: 100%;
+}

@@ -71,8 +71,12 @@ var app = function() {
             goldclickincrease: 1,
             goldpersecond: 0,
             maxgold: 0,
-            shop: [{item_name:"General Store", price: 10, description: ".2 gold every second", amount: 0, gold_per_sec: .2},
-            {item_name:"Jewelry Store", price: 100, description: "3 gold every second", amount: 0, gold_per_sec: 3}]
+            shop: [{item_name:"Farm", price: 10, description: "Grows more (vegetable you don't like) than you can imagine!", amount: 0, gold_per_sec: .2},
+            {item_name:"General Store", price: 100, description: "Sells generals", amount: 0, gold_per_sec: 3},
+            {item_name:"Tailor's Market", price: 1000, description: "Stocks a vast variety of products, but only one outfit ever gets bought", amount: 0, gold_per_sec: 35},
+            {item_name:"Gemsmith", price: 10000, description: "Counterfeit glass", amount: 0, gold_per_sec: 400},
+            {item_name:"Oil Well", price: 100000, description: "Oil is like an energy drink to goblins", amount: 0, gold_per_sec: 4250},
+            {item_name:"Castle", price: 1000000, description: "More like a playground than a defensive structure", amount: 0, gold_per_sec: 45000}]
         }
         ,
         methods: {

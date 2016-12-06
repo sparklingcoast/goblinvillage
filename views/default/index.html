@@ -9,32 +9,45 @@
 <div class="main_content">
     <div id="vue-div" style="display:none">
         <div class="container">
-            <div class="third">
-                <button class="btn" v-on:click="cookie_clicked">Gold!</button>
-                <span>
-                Gold: ${gold.toFixed(1)}
-            </span>
+            <div class="quarter white whole_page">
+                <div class="padded">
+                    <button class="btn" v-on:click="cookie_clicked">Gold!</button>
+                    <span>
+                    Gold: ${gold.toFixed(1)}
+                </span>
+                </div>
             </div>
-            <div class="twothirds">
-                <div v-for="item in shop">
-                    <div v-if="maxgold >= item.price/2">
-                        <div>
-                            ${item.item_name}
-                        </div>
-                        <div>
-                            ${item.price.toFixed(1)} gold
-                        </div>
-                        <div>
-                            Amount: ${item.amount}
-                        </div>
-                        <div>
-                            ${item.description}
-                        </div>
-                        <div>
-                            <button class="btn" v-on:click="purchase_item(item)">Buy</button>
+            <div class="quarter aqua whole_page">
+                <div class="padded">
+                    <div v-for="item in shop">
+                        <div class="btn teal fill" v-if="maxgold >= item.price/3" v-on:click="purchase_item(item)">
+                            <div>
+                                ${item.item_name}
+                            </div>
+                            <div>
+                                Cost: ${item.price.toFixed(1)} gold
+                            </div>
+                            <div>
+                                Produces ${item.gold_per_sec} gold per second
+                            </div>
+                            <div>
+                                ${item.description}
+                            </div>
+                            <div>
+                                Amount: ${item.amount}
+                            </div>
+                            <!--<div>
+                                <button class="btn" v-on:click="purchase_item(item)">Buy</button>
+                            </div>-->
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="quarter">
+
+            </div>
+            <div class="quarter">
+
             </div>
         </div>
     </div>
