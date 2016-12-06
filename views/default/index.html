@@ -20,7 +20,7 @@
             <div class="quarter aqua whole_page">
                 <div class="padded">
                     <div v-for="item in shop">
-                        <div class="btn teal fill" v-if="maxgold >= item.price/3" v-on:click="purchase_item(item)">
+                        <div class="btn teal fill rounded" v-if="maxgold >= item.price/3" v-on:click="purchase_item(item)">
                             <div>
                                 ${item.item_name}
                             </div>
@@ -36,9 +36,6 @@
                             <div>
                                 Amount: ${item.amount}
                             </div>
-                            <!--<div>
-                                <button class="btn" v-on:click="purchase_item(item)">Buy</button>
-                            </div>-->
                         </div>
                     </div>
                 </div>
