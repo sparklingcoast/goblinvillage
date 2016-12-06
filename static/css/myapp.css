@@ -58,3 +58,16 @@ div.main_content .total_price {
 .whole_page {
   height: 100%;
 }
+.circle {
+  height: 100px;
+  width: 100px;
+  outline:none !important;
+}
+.circle::-moz-focus-inner {
+    border: 0;
+}
+.coin {
+  background: url("/goblinvillage/static/images/coin.png");
+  background-size: 100%;
+  background-position: center;
+}

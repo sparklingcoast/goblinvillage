@@ -88,16 +88,16 @@ var app = function() {
             goldclickincrease: 1,
             goldpersecond: 0,
             maxgold: 0,
-            shop: [{item_name:"Farm", price: 10, description: "Grows more (vegetable you don't like) than you can imagine!", amount: 0, gold_per_sec: .2},
-            {item_name:"General Store", price: 100, description: "Sells generals", amount: 0, gold_per_sec: 3},
+            shop: [{item_name:"Farm", price: 10, description: "Grows more (vegetable you don't like) than you can imagine!", amount: 0, gold_per_sec: .2, img:"/goblinvillage/static/images/farm.png"},
+            {item_name:"General Store", price: 100, description: "Sells generals", amount: 0, gold_per_sec: 3, img:"/goblinvillage/static/images/store.png"},
             {item_name:"Tailor's Market", price: 1000, description: "Stocks a vast variety of products, but only one outfit ever gets bought", amount: 0, gold_per_sec: 35},
-            {item_name:"Gemsmith", price: 10000, description: "Counterfeit glass", amount: 0, gold_per_sec: 400},
+            {item_name:"Gemsmith", price: 10000, description: "Counterfeit glass", amount: 0, gold_per_sec: 400, img:"/goblinvillage/static/images/gem.png"},
             {item_name:"Oil Well", price: 100000, description: "Oil is like an energy drink to goblins", amount: 0, gold_per_sec: 4250},
             {item_name:"Castle", price: 1000000, description: "More like a playground than a defensive structure", amount: 0, gold_per_sec: 45000}],
-            mines: [{item_name:"Copper Mine", price: 20, description: "When it comes to goblins, 'mine' has a double meaning", amount: 0, gold_per_click: 1},
-            {item_name:"Iron Mine", price: 200, description: "Iron is too difficult to work with, so goblins just use the rocks in this mine", amount: 0, gold_per_click: 10},
-            {item_name:"Lumber Mine", price: 2000, description: "Requires specialty pickaxes", amount: 0, gold_per_click: 100},
-            {item_name:"Gold Mine", price: 20000, description: "Creates gold, like all the other stuff here", amount: 0, gold_per_click: 1000}]
+            mines: [{item_name:"Copper Mine", price: 20, description: "When it comes to goblins, 'mine' has a double meaning", amount: 0, gold_per_click: 1, img:"/goblinvillage/static/images/coppermine.png"},
+            {item_name:"Iron Mine", price: 200, description: "Iron is too difficult to work with, so goblins just use the rocks in this mine", amount: 0, gold_per_click: 10, img: "/goblinvillage/static/images/ironmine.png"},
+            {item_name:"Lumber Mine", price: 2000, description: "Requires specialty pickaxes", amount: 0, gold_per_click: 100, img:"/goblinvillage/static/images/tree.png"},
+            {item_name:"Gold Mine", price: 20000, description: "Creates gold, like all the other stuff here", amount: 0, gold_per_click: 1000, img:"/goblinvillage/static/images/goldmine.png"}]
         }
         ,
         methods: {

@@ -11,7 +11,7 @@
         <div class="container">
             <div class="quarter white whole_page">
                 <div class="padded">
-                    <button class="btn" v-on:click="cookie_clicked">Gold!</button>
+                    <button class="btn yellow oval circle coin" v-on:click="cookie_clicked">Gold!</button>
                     <span>
                     Gold: ${gold.toFixed(1)}
                 </span>
@@ -20,7 +20,12 @@
             <div class="quarter aqua whole_page">
                 <div class="padded">
                     <div v-for="item in shop">
-                        <div class="btn teal fill rounded" v-if="maxgold >= item.price/3" v-on:click="purchase_item(item)">
+                        <div class="btn teal fill rounded container" v-if="maxgold >= item.price/3"
+                             v-on:click="purchase_item(item)">
+                            <div class="quarter">
+                                <img v-bind:src="item.img">
+                            </div>
+                            <div class="threequarters">
                             <div>
                                 ${item.item_name}
                             </div>
@@ -36,28 +41,35 @@
                             <div>
                                 Amount: ${item.amount}
                             </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="quarter green whole_page">
-                 <div class="padded">
+                <div class="padded">
                     <div v-for="item in mines">
-                        <div class="btn teal fill rounded" v-if="maxgold >= item.price/3" v-on:click="purchase_item(item)">
-                            <div>
-                                ${item.item_name}
+                        <div class="btn teal fill rounded container" v-if="maxgold >= item.price/3"
+                             v-on:click="purchase_item(item)">
+                            <div class="quarter fill">
+                                <img v-bind:src="item.img">
                             </div>
-                            <div>
-                                Cost: ${item.price.toFixed(1)} gold
-                            </div>
-                            <div>
-                                Increases gold per click by ${item.gold_per_click}
-                            </div>
-                            <div>
-                                ${item.description}
-                            </div>
-                            <div>
-                                Amount: ${item.amount}
+                            <div class="threequarters">
+                                <div>
+                                    ${item.item_name}
+                                </div>
+                                <div>
+                                    Cost: ${item.price.toFixed(1)} gold
+                                </div>
+                                <div>
+                                    Increases gold per click by ${item.gold_per_click}
+                                </div>
+                                <div>
+                                    ${item.description}
+                                </div>
+                                <div>
+                                    Amount: ${item.amount}
+                                </div>
                             </div>
                         </div>
                     </div>
