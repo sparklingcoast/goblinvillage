@@ -14,10 +14,14 @@
         <div class="container">
             <div class="quarter white whole_page">
                 <div class="padded center">
-                    <button class="btn yellow oval circle coin" v-on:click="cookie_clicked"><span class="gold">Gold:<br> ${gold.toFixed(0)}</span></button>
+                    <button class="btn yellow oval circle coin" v-on:click="cookie_clicked"><span class="gold">Gold:<br> ${gold.toFixed(0)}</span>
+                    </button>
                 </div>
-                <div class="padded center" v-if="goldpersecond>0">Making ${goldpersecond.toFixed(1)} gold per second</div>
-                <div class="padded center" v-if="goldclickincrease>1">Each click gives ${goldclickincrease.toFixed(0)} gold</div>
+                <div class="padded center" v-if="goldpersecond>0">Making ${goldpersecond.toFixed(1)} gold per second
+                </div>
+                <div class="padded center" v-if="goldclickincrease>1">Each click gives ${goldclickincrease.toFixed(0)}
+                    gold
+                </div>
             </div>
             <div class="quarter aqua whole_page">
                 <div class="padded">
@@ -81,11 +85,19 @@
             </div>
             <div class="quarter red whole_page">
                 <div class="padded">
-                <div class="section_title">Warfare</div>
-                <div class="btn teal fill rounded item_title raid_button" v-if="maxgold>=1000" v-on:click="get_villages">Raid rival village<br>
-                Goblins: ${goblins}<br>
-                    Weapons: ${weapons}
-                </div>
+                    <div class="section_title">Warfare</div>
+                    <div class="btn teal fill rounded raid_button" v-if="maxgold>=1000" v-on:click="get_villages">
+                        <div class="center" v-if="!attacking">Raid rival village<br>
+                            Goblins: ${goblins}<br>
+                            Weapons: ${weapons}
+                        </div>
+                        <div class="center" v-if="attacking">You spy a village in the distance:<hr>
+                            ${attacking_village_name}'s village<br>
+                            Power: ${attacking_power}<br>
+                            ATTACK!
+                        </div>
+                    </div>
+                    <div class="item_title" v-if="fight_ended">You won! You now gain ${attacking_gps} gold every second as tribute!</div>
                 </div>
             </div>
         </div>

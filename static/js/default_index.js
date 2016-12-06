@@ -99,7 +99,24 @@ var app = function() {
     }
     
     self.get_villages = function () {
-        
+        $.getJSON(get_other_villages_url, function (data) {
+            var unlucky_village = JSON.parse(data.unlucky_village);
+            if(self.vue.attacking) {
+                self.vue.attacking_gps = 0;
+                for (var i = 0; i < unlucky_village.shop.length; i++){
+                    self.vue.attacking_gps += unlucky_village.shop[i].gold_per_sec * unlucky_village.shop[i].amount;
+                }
+                self.vue.goldpersecond += self.vue.attacking_gps;
+                self.vue.attacking = false;
+                self.vue.fight_ended = true;
+            }
+            else {
+                self.vue.attacking_village_name = data.user_name;
+                self.vue.attacking_power = unlucky_village.goblins+unlucky_village.weapons;
+                self.vue.attacking = true;
+            }
+
+        })
     }
 
     self.update_village = function () {
@@ -140,7 +157,12 @@ var app = function() {
             {item_name:"Iron Mine", price: 200, description: "Iron is too difficult to work with, so goblins just use the rocks in this mine", amount: 0, gold_per_click: 10, img: "/goblinvillage/static/images/ironmine.png"},
             {item_name:"Lumber Mine", price: 2000, description: "Requires specialty pickaxes", amount: 0, gold_per_click: 100, img:"/goblinvillage/static/images/tree.png"},
             {item_name:"Gold Mine", price: 20000, description: "Creates gold, like all the other stuff here", amount: 0, gold_per_click: 1000, img:"/goblinvillage/static/images/goldmine.png"},
-            {item_name:"Diamond Mine", price: 200000, description: "It's crystal clear that this mine is a gem in the rough, these diamonds rock!", amount: 0, gold_per_click: 10000, img:"/goblinvillage/static/images/diamondmine.png"}]
+            {item_name:"Diamond Mine", price: 200000, description: "It's crystal clear that this mine is a gem in the rough, these diamonds rock!", amount: 0, gold_per_click: 10000, img:"/goblinvillage/static/images/diamondmine.png"}],
+            attacking: false,
+            attacking_village_name: "",
+            attacking_power: 0,
+            attacking_gps: 0,
+            fight_ended: false
         }
         ,
         methods: {

@@ -3,6 +3,7 @@
 
 import traceback
 import requests
+import random
 
 
 def get_user_name_from_email(email):
@@ -21,10 +22,13 @@ def get_village():
         return response.json(dict(village="None"))
     return response.json(dict(village=row.village))
 
+def get_other_villages():
+    rows = db(db.villages).select()
+    unlucky_village = rows[random.randint(0, len(rows)-1)]
+    return response.json(dict(unlucky_village=unlucky_village.village, user_name=get_user_name_from_email(unlucky_village.user_email)))
 
 @auth.requires_login()
 def update_village():
-    print request.vars.village
     row = db(db.villages.user_email == auth.user.email).select().first()
     if row == None:
         db.villages.insert(user_email=auth.user.email,village=request.vars.village)
