@@ -47,6 +47,7 @@ var app = function() {
                     self.vue.gold -= self.vue.shop[i].price;
                     self.vue.shop[i].price *= 1.05;
                     self.vue.shop[i].amount += 1;
+                    self.vue.goblins += 1;
                     self.calculate_gps();
                 }
                 return;
@@ -58,6 +59,7 @@ var app = function() {
                     self.vue.gold -= self.vue.mines[i].price;
                     self.vue.mines[i].price *= 1.05;
                     self.vue.mines[i].amount += 1;
+                    self.vue.weapons += 1;
                     self.calculate_per_click();
                 }
                 return;
@@ -78,6 +80,10 @@ var app = function() {
             self.vue.goldclickincrease += self.vue.mines[i].gold_per_click * self.vue.mines[i].amount;
         }
     }
+    
+    self.get_villages = function () {
+        
+    }
 
     self.vue = new Vue({
         el: "#vue-div",
@@ -88,21 +94,25 @@ var app = function() {
             goldclickincrease: 1,
             goldpersecond: 0,
             maxgold: 0,
+            goblins: 0,
+            weapons:0,
             shop: [{item_name:"Farm", price: 10, description: "Grows more (vegetable you don't like) than you can imagine!", amount: 0, gold_per_sec: .2, img:"/goblinvillage/static/images/farm.png"},
             {item_name:"General Store", price: 100, description: "Sells generals", amount: 0, gold_per_sec: 3, img:"/goblinvillage/static/images/store.png"},
-            {item_name:"Tailor's Market", price: 1000, description: "Stocks a vast variety of products, but only one outfit ever gets bought", amount: 0, gold_per_sec: 35},
+            {item_name:"Tailor's Market", price: 1000, description: "Stocks a vast variety of products, but only one outfit ever gets bought", amount: 0, gold_per_sec: 35, img:"/goblinvillage/static/images/clothes.png"},
             {item_name:"Gemsmith", price: 10000, description: "Counterfeit glass", amount: 0, gold_per_sec: 400, img:"/goblinvillage/static/images/gem.png"},
-            {item_name:"Oil Well", price: 100000, description: "Oil is like an energy drink to goblins", amount: 0, gold_per_sec: 4250},
+            {item_name:"Oil Well", price: 100000, description: "Oil is like an energy drink to goblins", amount: 0, gold_per_sec: 4250, img:"/goblinvillage/static/images/oil.png"},
             {item_name:"Castle", price: 1000000, description: "More like a playground than a defensive structure", amount: 0, gold_per_sec: 45000, img:"/goblinvillage/static/images/castle.png"}],
             mines: [{item_name:"Copper Mine", price: 20, description: "When it comes to goblins, 'mine' has a double meaning", amount: 0, gold_per_click: 1, img:"/goblinvillage/static/images/coppermine.png"},
             {item_name:"Iron Mine", price: 200, description: "Iron is too difficult to work with, so goblins just use the rocks in this mine", amount: 0, gold_per_click: 10, img: "/goblinvillage/static/images/ironmine.png"},
             {item_name:"Lumber Mine", price: 2000, description: "Requires specialty pickaxes", amount: 0, gold_per_click: 100, img:"/goblinvillage/static/images/tree.png"},
-            {item_name:"Gold Mine", price: 20000, description: "Creates gold, like all the other stuff here", amount: 0, gold_per_click: 1000, img:"/goblinvillage/static/images/goldmine.png"}]
+            {item_name:"Gold Mine", price: 20000, description: "Creates gold, like all the other stuff here", amount: 0, gold_per_click: 1000, img:"/goblinvillage/static/images/goldmine.png"},
+            {item_name:"Diamond Mine", price: 200000, description: "It's crystal clear that this mine is a gem in the rough, these diamonds rock!", amount: 0, gold_per_click: 10000, img:"/goblinvillage/static/images/diamondmine.png"}]
         }
         ,
         methods: {
             cookie_clicked: self.cookie_clicked,
-            purchase_item: self.purchase_item
+            purchase_item: self.purchase_item,
+            get_villages: self.get_villages
         }
 
     });

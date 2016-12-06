@@ -81,6 +81,16 @@ div.main_content .total_price {
 }
 
 .gold {
-  font-size: 700%;
+  font-size: 600%;
   color: white;
+  text-shadow: 2px 2px 2px #DDDD00;
+}
+
+.section_title {
+  font-size: 300%;
+  color: white;
+}
+
+.raid_button {
+  background-color: darkred;
 }

@@ -11,11 +11,12 @@
         <div class="container">
             <div class="quarter white whole_page">
                 <div class="padded">
-                    <button class="btn yellow oval circle coin" v-on:click="cookie_clicked"><span class="gold">Gold:<br> ${gold.toFixed(1)}</span></button>
+                    <button class="btn yellow oval circle coin" v-on:click="cookie_clicked"><span class="gold">Gold:<br> ${gold.toFixed(0)}</span></button>
                 </div>
             </div>
             <div class="quarter aqua whole_page">
                 <div class="padded">
+                    <div class="section_title">Economy</div>
                     <div v-for="item in shop">
                         <div class="btn teal fill rounded container" v-if="maxgold >= item.price/3"
                              v-on:click="purchase_item(item)">
@@ -45,6 +46,7 @@
             </div>
             <div class="quarter green whole_page">
                 <div class="padded">
+                    <div class="section_title">Mines</div>
                     <div v-for="item in mines">
                         <div class="btn teal fill rounded container" v-if="maxgold >= item.price/3"
                              v-on:click="purchase_item(item)">
@@ -52,7 +54,7 @@
                                 <img class="center" v-bind:src="item.img">
                             </div>
                             <div class="threequarters">
-                                <div>
+                                <div class="item_title">
                                     ${item.item_name}
                                 </div>
                                 <div>
@@ -72,8 +74,14 @@
                     </div>
                 </div>
             </div>
-            <div class="quarter">
-
+            <div class="quarter red whole_page">
+                <div class="padded">
+                <div class="section_title">Warfare</div>
+                <div class="btn teal fill rounded item_title raid_button" v-if="maxgold>=1000" v-on:click="get_villages">Raid rival village<br>
+                Goblins: ${goblins}<br>
+                    Weapons: ${weapons}
+                </div>
+                </div>
             </div>
         </div>
     </div>
