@@ -49,7 +49,18 @@ var app = function() {
                     self.vue.shop[i].amount += 1;
                     self.calculate_gps();
                 }
-                break;
+                return;
+            }
+        }
+        for (var i = 0; i < self.vue.mines.length; i++) {
+            if (self.vue.mines[i].item_name == purchased_item.item_name) {
+                if (self.vue.gold >= self.vue.mines[i].price - .001) {
+                    self.vue.gold -= self.vue.mines[i].price;
+                    self.vue.mines[i].price *= 1.05;
+                    self.vue.mines[i].amount += 1;
+                    self.calculate_per_click();
+                }
+                return;
             }
         }
     }
@@ -61,6 +72,12 @@ var app = function() {
         }
     }
 
+    self.calculate_per_click = function () {
+        self.vue.goldclickincrease = 1;
+        for (var i = 0; i < self.vue.mines.length; i++){
+            self.vue.goldclickincrease += self.vue.mines[i].gold_per_click * self.vue.mines[i].amount;
+        }
+    }
 
     self.vue = new Vue({
         el: "#vue-div",
@@ -76,7 +93,11 @@ var app = function() {
             {item_name:"Tailor's Market", price: 1000, description: "Stocks a vast variety of products, but only one outfit ever gets bought", amount: 0, gold_per_sec: 35},
             {item_name:"Gemsmith", price: 10000, description: "Counterfeit glass", amount: 0, gold_per_sec: 400},
             {item_name:"Oil Well", price: 100000, description: "Oil is like an energy drink to goblins", amount: 0, gold_per_sec: 4250},
-            {item_name:"Castle", price: 1000000, description: "More like a playground than a defensive structure", amount: 0, gold_per_sec: 45000}]
+            {item_name:"Castle", price: 1000000, description: "More like a playground than a defensive structure", amount: 0, gold_per_sec: 45000}],
+            mines: [{item_name:"Copper Mine", price: 20, description: "When it comes to goblins, 'mine' has a double meaning", amount: 0, gold_per_click: 1},
+            {item_name:"Iron Mine", price: 200, description: "Iron is too difficult to work with, so goblins just use the rocks in this mine", amount: 0, gold_per_click: 10},
+            {item_name:"Lumber Mine", price: 2000, description: "Requires specialty pickaxes", amount: 0, gold_per_click: 100},
+            {item_name:"Gold Mine", price: 20000, description: "Creates gold, like all the other stuff here", amount: 0, gold_per_click: 1000}]
         }
         ,
         methods: {

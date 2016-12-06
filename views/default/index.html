@@ -40,8 +40,28 @@
                     </div>
                 </div>
             </div>
-            <div class="quarter">
-
+            <div class="quarter green whole_page">
+                 <div class="padded">
+                    <div v-for="item in mines">
+                        <div class="btn teal fill rounded" v-if="maxgold >= item.price/3" v-on:click="purchase_item(item)">
+                            <div>
+                                ${item.item_name}
+                            </div>
+                            <div>
+                                Cost: ${item.price.toFixed(1)} gold
+                            </div>
+                            <div>
+                                Increases gold per click by ${item.gold_per_click}
+                            </div>
+                            <div>
+                                ${item.description}
+                            </div>
+                            <div>
+                                Amount: ${item.amount}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="quarter">
 
