@@ -97,7 +97,8 @@
                             ATTACK!
                         </div>
                     </div>
-                    <div class="item_title" v-if="fight_ended">You won! You now gain ${attacking_gps} gold every second as tribute!</div>
+                    <div class="item_title" v-if="fight_ended && victory">You won! You now gain ${attacking_gps} gold every second as tribute!</div>
+                    <div class="item_title" v-if="fight_ended && !victory">Oh no you lost! =(</div>
                 </div>
             </div>
         </div>
